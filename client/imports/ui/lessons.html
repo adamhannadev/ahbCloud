@@ -1,3 +1,17 @@
 <template name="lessonList">
-    <header>Lessons</header>
+    <header>Lessons</header><br>
+    <div id="LessonsContainer">
+        {{#each lessons}}
+        <div class="lesson">
+            {{> lesson}}
+        </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="lesson">
+    Date: {{lessonDate}}<br>
+    Time: {{lessonTime}}<br>
+    Student: {{student}}<br>
+    Teacher: {{teacher}}
 </template>
