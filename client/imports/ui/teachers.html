@@ -1,0 +1,12 @@
+<template name="teacherList">
+    <header>Teachers</header>
+    <ul>
+        {{#each teachers}}
+        <li>{{> teacher}}</li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="teacher">
+    {{lastName}}, {{firstName}}
+</template>
