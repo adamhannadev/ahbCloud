@@ -7,6 +7,20 @@
         </div>
         {{/each}}
     </div>
+
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Teacher</th>
+            <th>Student</th>
+        </thead>
+        <tbody>
+            <tr>
+                {{> lesson }}
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <template name="lesson">
