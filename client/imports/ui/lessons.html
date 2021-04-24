@@ -1,13 +1,5 @@
 <template name="lessonList">
-    <header>Lessons</header><br>
-    <div id="LessonsContainer">
-        {{#each lessons}}
-        <div class="lesson">
-            {{> lesson}}
-        </div>
-        {{/each}}
-    </div>
-
+    <header>Lessons</header>
     <table>
         <thead>
             <th>Date</th>
@@ -16,16 +8,18 @@
             <th>Student</th>
         </thead>
         <tbody>
+            {{#each lessons }}
             <tr>
                 {{> lesson }}
             </tr>
+            {{/each}}
         </tbody>
     </table>
 </template>
 
 <template name="lesson">
-    Date: {{lessonDate}}<br>
-    Time: {{lessonTime}}<br>
-    Student: {{student}}<br>
-    Teacher: {{teacher}}
+   <td>{{lessonDate}}</td>
+    <td>{{lessonTime}}</td>
+    <td>{{student}}</td> 
+    <td>{{teacher}}</td>
 </template>
