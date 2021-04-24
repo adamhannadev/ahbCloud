@@ -19,11 +19,11 @@ Template.teacherList.helpers({
   ]
 });
 
-let today = new Date();
+let today = moment();
 
 Template.lessonList.helpers({
   lessons: [
-    { lessonDate: today, lessonTime: today.toTimeString(), student: "Linda", teacher: "Adam" },
-    { lessonDate: today, lessonTime: today.toTimeString(), student: "Liping", teacher: "Adam" }
+    { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime: today.format("h:ma"), student: "Linda", teacher: "Adam" },
+    { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime:today.format("h:ma"), student: "Liping", teacher: "Adam" }
   ]
 });
