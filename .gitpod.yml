@@ -1,0 +1,3 @@
+tasks:
+  - init: curl https://install.meteor.com/ | sh
+  - init: npm install
