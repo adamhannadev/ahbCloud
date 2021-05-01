@@ -15,6 +15,7 @@
             {{/each}}
         </tbody>
     </table>
+    {{> lessonForm}}
 </template>
 
 <template name="lesson">
@@ -22,4 +23,12 @@
     <td>{{lessonTime}}</td>
     <td>{{student}}</td> 
     <td>{{teacher}}</td>
+</template>
+
+<template name="lessonForm">
+    <form id="new-lesson">
+        <input type="text" name="student" id="student" />
+        <input type="text" name="teacher" id="teacher" />
+        <button type="submit">Add Lesson</button>
+    </form> 
 </template>
