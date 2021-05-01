@@ -33,7 +33,10 @@ Template.lessonList.events({
     // Clear form
     event.target.student.value = '';
     event.target.teacher.value = '';
-
+  },
+  'click .delete' (e){
+    console.log("Deleting: " + this._id);
+    Lessons.remove(this._id);
   }
 });
 
