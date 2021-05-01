@@ -1,9 +1,9 @@
 import { Template } from 'meteor/templating';
 
 import './main.html';
-import './imports/ui/students.html';
-import './imports/ui/teachers.html';
-import './imports/ui/lessons.html';
+import '../imports/ui/students.html';
+import '../imports/ui/teachers.html';
+import '../imports/ui/lessons.js';
 
 Template.studentList.helpers({
   students: [
@@ -21,9 +21,9 @@ Template.teacherList.helpers({
 
 let today = moment();
 
-Template.lessonList.helpers({
-  lessons: [
-    { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime: today.format("h:ma"), student: "Linda", teacher: "Adam" },
-    { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime:today.format("h:ma"), student: "Liping", teacher: "Adam" }
-  ]
-});
+// Template.lessonList.helpers({
+//   lessons: [
+//     { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime: today.format("h:ma"), student: "Linda", teacher: "Adam" },
+//     { lessonDate: today.format("dddd MMM D, YYYY"), lessonTime:today.format("h:ma"), student: "Liping", teacher: "Adam" }
+//   ]
+// });
