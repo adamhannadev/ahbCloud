@@ -1,19 +1,22 @@
-
-
 import { Template } from 'meteor/templating';
-
 import { Lessons } from '../api/lessons.js';
-
 import './lessons.html';
 
 Template.lessonList.helpers({
-
     lessons() {
-
         return Lessons.find({});
+      }
+});
 
-      },
-
+Template.lesson.helpers({
+  formatDate(input) {
+    const formatted = moment(input).format("dddd, MMMM Do YYYY");
+    return formatted;
+  },
+  formatTime(input) {
+    const formatted = moment(input).format("hA");
+    return formatted;
+  }
 });
 
 Template.lessonList.events({

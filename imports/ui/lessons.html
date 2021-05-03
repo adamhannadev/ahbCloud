@@ -19,8 +19,8 @@
 </template>
 
 <template name="lesson">
-   <td>{{lessonDate}}</td>
-    <td>{{lessonTime}}</td>
+   <td>{{formatDate lessonDate}}</td>
+    <td>{{formatTime lessonTime}}</td>
     <td>{{student}}</td> 
     <td>{{teacher}}</td>
     <td><button class="delete">Delete</button></td>
