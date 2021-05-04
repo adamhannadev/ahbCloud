@@ -1,6 +1,11 @@
 import { Template } from 'meteor/templating';
 import { Lessons } from '../api/lessons.js';
 import './lessons.html';
+import datepicker from 'js-datepicker';
+import '../../node_modules/js-datepicker/dist/datepicker.min.css';
+Template.lessonForm.onRendered(function(){
+  const picker = datepicker('.picker');
+});
 
 Template.lessonList.helpers({
     lessons() {
