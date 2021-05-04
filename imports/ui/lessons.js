@@ -30,10 +30,13 @@ Template.lessonList.events({
     // Get value from form element
     const teacher = event.target.teacher.value;
     const student = event.target.student.value;
+    const lessonDate = event.target.lessonDate.value;
+    const lessonTime = event.target.lessonTime.value;
+    
     // Insert a task into the collection
     Lessons.insert({
-      lessonDate: new Date(),
-      lessonTime: new Date(),
+      lessonDate: lessonDate,
+      lessonTime: lessonTime,
       teacher: teacher,
       student: student,
       createdAt: new Date(), // current time
@@ -41,6 +44,8 @@ Template.lessonList.events({
     // Clear form
     event.target.student.value = '';
     event.target.teacher.value = '';
+    event.target.lessonDate.value = '';
+    event.target.lessonTime.value = '';
   },
   'click .delete' (e){
     console.log("Deleting: " + this._id);

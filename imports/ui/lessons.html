@@ -1,6 +1,6 @@
 <template name="lessonList">
     <header>Lessons</header>
-    <table>
+    <table class="table">
         <thead>
             <th>Date</th>
             <th>Time</th>
@@ -20,15 +20,16 @@
 
 <template name="lesson">
    <td>{{formatDate lessonDate}}</td>
-    <td>{{formatTime lessonTime}}</td>
+    <td>{{lessonTime}}</td>
     <td>{{student}}</td> 
     <td>{{teacher}}</td>
     <td><button class="delete">Delete</button></td>
 </template>
 
 <template name="lessonForm">
-    <form id="new-lesson">
+    <form id="new-lesson" class="form">
         <input type="text" name="lessonDate" class="picker">
+        <input type="text" name="lessonTime">
         <input type="text" name="student" id="student" />
         <input type="text" name="teacher" id="teacher" />
         <button type="submit">Add Lesson</button>
