@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 
 import './main.html';
-import '../imports/ui/students.html';
+import '../imports/ui/students/students.html';
 import '../imports/ui/teachers.html';
 import '../imports/ui/lessons.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
