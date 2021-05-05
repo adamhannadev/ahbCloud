@@ -7,6 +7,11 @@ Template.studentList.helpers({
         return Students.find({});
     }
 });
+Template.studentList.events({
+    'click .delete' (e) {
+        Students.remove(this._id);
+    }
+})
 
 Template.studentForm.events({
     'submit #new-student' (e) {
@@ -28,7 +33,7 @@ Template.studentForm.events({
         console.log(e.target);
         e.target.lastName.value = "";
         e.target.firstName.value = "";
-        e.target.teacher.vaule = "";
+        e.target.teacher.value = "";
         e.target.lessonsTaken.value = "";
     }
 });
