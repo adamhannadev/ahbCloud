@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import './students.html';
-import { Students } from '../api/students.js';
+import { Students } from '../../api/students.js';
 
 Template.studentList.helpers({
     students() {
