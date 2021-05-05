@@ -1,15 +1,15 @@
-import { Template } from 'meteor-templating';
+import { Template } from 'meteor/templating';
 import './students.html';
-import { Students } from '../../api/students.js';
+import { Students } from '../api/students.js';
 
-Template.studentsList.helpers({
+Template.studentList.helpers({
     students() {
         return Students.find({});
     }
 });
 
 Template.studentForm.events({
-    'click #add-student' (e) {
+    'submit #new-student' (e) {
         e.preventDefault();
 
         const lastName = e.target.lastName.value;
@@ -26,5 +26,9 @@ Template.studentForm.events({
         });
 
         console.log(e.target);
+        e.target.lastName.value = "";
+        e.target.firstName.value = "";
+        e.target.teacher.vaule = "";
+        e.target.lessonsTaken.value = "";
     }
 });
