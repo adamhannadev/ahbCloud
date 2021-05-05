@@ -1,0 +1,56 @@
+<template name="studentList">
+    <div>
+        <h2>Students</h2>
+        <table class="table">
+            <thead>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Assigned Teacher</th>
+                <th>Lessons Taken</th>
+            </thead>
+            <tbody>
+                {{#each students}}
+                <tr>{{> student}}</tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{>studentForm}}
+    </div>
+</template>
+
+<template name="student">
+    <td>{{lastName}}</td>
+    <td>{{firstName}}</td>
+    <td>{{teacher}}</td>
+    <td>{{lessonsTaken}}</td>
+    <td><button class="btn delete">Delete</button></td>
+</template>
+
+<template name="studentForm">
+    <div class="container">
+        <form id="new-student">
+    <div class="row">
+        
+    <div class="col">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" class="form-control" />       
+    </div>    
+    <div class="col">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" class="form-control" />    
+    </div>
+    <div class="col">
+        <label for="teacher">Teacher</label>
+        <input type="text" name="teacher" class="form-control" />
+    </div>
+    <div class="col">
+        <label for="lessonsTaken">Lessons Taken</label>
+        <input type="text" name="lessonsTaken" class="form-control" />
+    </div> 
+</div> 
+    <div class="row">
+        <button stype="submit" class="btn">Add Student</button>
+    </div>
+</form>
+</div>
+</template>
