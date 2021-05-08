@@ -1,0 +1,56 @@
+<template name="lessonList">
+    <h1>Lessons</h1>
+    <table class="table">
+        <thead>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Teacher</th>
+            <th>Student</th>
+        </thead>
+        <tbody>
+            {{#each lessons }}
+            <tr>
+                {{> lesson }}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{> lessonForm}}
+</template>
+
+<template name="lesson">
+   <td>{{formatDate lessonDate}}</td>
+    <td>{{lessonTime}}</td>
+    <td>{{student}}</td> 
+    <td>{{teacher}}</td>
+    <td><button class="delete">Delete</button></td>
+</template>
+
+<template name="lessonForm">
+    <div class="container">
+        <form id="new-lesson" class="form">
+            <div class="row">
+            <div class="col">
+                <label for="lessonDate">Date</label>
+                <input type="text" name="lessonDate" class="picker form-control">
+            </div>
+            <div class="col">
+                <label for="lessonTime">Time</label>
+                <input type="text" name="lessonTime" class="form-control">
+            </div>
+            <div class="col">
+                <label for="student">Student</label>
+                <input type="text" name="student" id="student" class="form-control" />
+            </div>
+            <div class="col">
+                <label for="teacher">Teacher</label>
+                <input type="text" name="teacher" id="teacher" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn">Add Lesson</button>
+        </div>
+        </form> 
+    </div>
+       
+</template>
