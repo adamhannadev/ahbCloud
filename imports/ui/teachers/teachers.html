@@ -1,0 +1,44 @@
+<template name="teacherList">
+    <div>
+        <h2>Teachers</h2>
+        <table class="table">
+            <thead>
+                <th>Last Name</th>
+                <th>First Name</th>
+            </thead>
+            <tbody>
+                {{#each teachers}}
+                <tr>{{> teacher}}</tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{>teacherForm}}
+    </div>
+</template>
+
+<template name="teacher">
+    <td>{{lastName}}</td>
+    <td>{{firstName}}</td>
+    <td><button class="btn delete">Delete</button></td>
+</template>
+
+<template name="teacherForm">
+    <div class="container">
+        <form id="new-teacher">
+    <div class="row">
+        
+    <div class="col">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" class="form-control" />       
+    </div>    
+    <div class="col">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" class="form-control" />    
+    </div>
+</div> 
+    <div class="row">
+        <button stype="submit" class="btn">Add Teacher</button>
+    </div>
+</form>
+</div>
+</template>
