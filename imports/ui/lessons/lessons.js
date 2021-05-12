@@ -3,6 +3,14 @@ import { Lessons } from '../../api/lessons.js';
 import './lessons.html';
 import datepicker from 'js-datepicker';
 import '../../../node_modules/js-datepicker/dist/datepicker.min.css';
+
+import { Meteor } from 'meteor/meteor';
+
+Template.lessonList.onCreated(function (){
+  // this.state = new ReactiveDict();
+  Meteor.subscribe('lessons');
+});
+
 Template.lessonForm.onRendered(function(){
   const picker = datepicker('.picker');
 });
