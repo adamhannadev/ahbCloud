@@ -17,6 +17,7 @@
         </tbody>
     </table>
     {{> lessonForm}}
+    {{> weekView }}
     </div>
 </template>
 
@@ -54,4 +55,24 @@
         </div>
         </form> 
     </div>
+</template>
+
+
+<template name="weekView">
+<div class="weekview container">
+    {{lcount}} lessons this week. Today is {{todaysDate}}.
+    This week starts on {{weekStart}}.
+    This week ends on {{weekEnd}}.
+    <table class="table">
+        <thead><th>Monday</th></thead>
+        {{#each lessons}}
+        <tr><td>{{createdAt}}</td><td>{{lessonDate}}</td></tr>
+        {{/each}}
+        <thead><th>Tuesday</th></thead>
+        <thead><th>Wednesday</th></thead>
+        <tr><td>Lesson 1</td></tr>
+        <thead><th>Thursday</th></thead>
+        <thead><th>Friday</th></thead>
+    </table>
+</div>
 </template>
