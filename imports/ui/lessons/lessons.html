@@ -60,19 +60,33 @@
 
 <template name="weekView">
 <div class="weekview container">
-    {{lcount}} lessons this week. Today is {{todaysDate}}.
-    This week starts on {{weekStart}}.
-    This week ends on {{weekEnd}}.
-    <table class="table">
-        <thead><th>Monday</th></thead>
-        {{#each lessons}}
+    {{lcount}} lessons this week.
+    <table class="table" style="border:1px dotted black;">
+        <tr><td>Monday</td><td></td></tr>
+        {{#each lessons 1}}
+        <tr>
+            <td style="border:1px dotted black;">{{lessonTime}}</td>
+            <td style="border:1px dotted black;">{{formatDate lessonDate}}</td>
+            <td style="border:1px dotted black;">{{student}}</td>
+            <td style="border:1px dotted black;">{{teacher}}</td>
+        </tr>
+        {{/each}}
+        <tr><td>Tuesday</td></tr>
+        {{#each lessons 2}}
+        <tr><td>{{lessonDate}}</td></tr>
+        {{/each}}
+        <tr><td>Wednesday</td></tr>
+        {{#each lessons 3}}
         <tr><td>{{createdAt}}</td><td>{{lessonDate}}</td></tr>
         {{/each}}
-        <thead><th>Tuesday</th></thead>
-        <thead><th>Wednesday</th></thead>
-        <tr><td>Lesson 1</td></tr>
-        <thead><th>Thursday</th></thead>
-        <thead><th>Friday</th></thead>
+        <tr><td>Thursday</td></tr>
+        {{#each lessons 4}}
+        <tr><td>{{createdAt}}</td><td>{{lessonDate}}</td></tr>
+        {{/each}}
+        <tr><td>Friday</td></tr>
+        {{#each lessons 5}}
+        <tr><td>{{createdAt}}</td><td>{{lessonDate}}</td></tr>
+        {{/each}}
     </table>
 </div>
 </template>

@@ -39,7 +39,6 @@ Template.lessonList.events({
     const student = event.target.student.value;
     const lessonDate = moment(event.target.lessonDate.value).toDate();
     const lessonTime = event.target.lessonTime.value;
-    console.log("Logging the date from the form: " + lessonDate);
     // Insert a task into the collection
     Lessons.insert({
       lessonDate: lessonDate,
@@ -60,24 +59,27 @@ Template.lessonList.events({
   }
 });
 
+
 const today = moment().startOf('day');
 
 Template.weekView.helpers({
-lessons() {
+lessons(date) {
   return Lessons.find({
      lessonDate: {
-      $gte: today.toDate(),
-      $lte: moment(today).endOf('day').toDate()
+      $gte: moment().day(date).startOf('day').toDate(),
+      $lte: moment().day(date).endOf('day').toDate()
      }
-  });
+  }, { sort: { lessonTime: 1 }
+});
+},
+formatDate(input) {
+  const formatted = moment(input).format("dddd, MMMM Do YYYY");
+  return formatted;
 },
 lcount(){
   return Lessons.find({}).count();
 },
 todaysDate(){
   return moment(new Date()).date();
-},
-weekStart(){
-return moment().day(1);
 }
 });
