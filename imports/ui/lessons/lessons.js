@@ -3,7 +3,6 @@ import { Lessons } from '../../api/lessons.js';
 import './lessons.html';
 import datepicker from 'js-datepicker';
 import '../../../node_modules/js-datepicker/dist/datepicker.min.css';
-
 import { Meteor } from 'meteor/meteor';
 
 Template.lessonList.onCreated(function (){
@@ -38,9 +37,8 @@ Template.lessonList.events({
     // Get value from form element
     const teacher = event.target.teacher.value;
     const student = event.target.student.value;
-    const lessonDate = event.target.lessonDate.value;
+    const lessonDate = moment(event.target.lessonDate.value).toDate();
     const lessonTime = event.target.lessonTime.value;
-    
     // Insert a task into the collection
     Lessons.insert({
       lessonDate: lessonDate,
@@ -61,3 +59,27 @@ Template.lessonList.events({
   }
 });
 
+
+const today = moment().startOf('day');
+
+Template.weekView.helpers({
+lessons(date) {
+  return Lessons.find({
+     lessonDate: {
+      $gte: moment().day(date).startOf('day').toDate(),
+      $lte: moment().day(date).endOf('day').toDate()
+     }
+  }, { sort: { lessonTime: 1 }
+});
+},
+formatDate(input) {
+  const formatted = moment(input).format("dddd, MMMM Do YYYY");
+  return formatted;
+},
+lcount(){
+  return Lessons.find({}).count();
+},
+todaysDate(){
+  return moment(new Date()).date();
+}
+});
