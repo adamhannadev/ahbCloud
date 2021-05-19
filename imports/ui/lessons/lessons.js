@@ -72,10 +72,6 @@ lessons(date) {
   }, { sort: { lessonTime: 1 }
 });
 },
-formatDate(input) {
-  const formatted = moment(input).format("dddd, MMMM Do YYYY");
-  return formatted;
-},
 lcount(){
   return Lessons.find({}).count();
 },

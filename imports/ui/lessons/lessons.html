@@ -61,19 +61,19 @@
 <template name="weekView">
 <div class="weekview container">
     {{lcount}} lessons this week.
-    <table class="table" style="border:1px dotted black;">
+    <table class="table">
         <tr><td>Monday</td><td></td></tr>
         {{#each lessons 1}}
         <tr>
-            <td style="border:1px dotted black;">{{lessonTime}}</td>
-            <td style="border:1px dotted black;">{{formatDate lessonDate}}</td>
-            <td style="border:1px dotted black;">{{student}}</td>
-            <td style="border:1px dotted black;">{{teacher}}</td>
+            <td>{{lessonTime}}</td>
+            <td>{{formatDate lessonDate}}</td>
+            <td>{{student}}</td>
+            <td>{{teacher}}</td>
         </tr>
         {{/each}}
         <tr><td>Tuesday</td></tr>
         {{#each lessons 2}}
-        <tr><td>{{lessonDate}}</td></tr>
+        <tr><td>{{lessonTime}}</td><td>{{student}}</td><td>{{teacher}}</td></tr>
         {{/each}}
         <tr><td>Wednesday</td></tr>
         {{#each lessons 3}}
